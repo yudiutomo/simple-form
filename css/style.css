@@ -1,0 +1,186 @@
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/open-sans-v13-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans'),
+       url('../fonts/open-sans-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/open-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/open-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/open-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/open-sans-v13-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	background: #F7F9FB;
+  /* maxvoltar.com/archive/-webkit-font-smoothing */
+   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #F7F9FB;
+	font-family: 'Open Sans', arial, verdana, sans-serif;
+  font-size: 16px;
+}
+
+input, textarea {
+  font-family: 'Open Sans', arial, verdana, sans-serif;
+}
+
+::-webkit-input-placeholder {
+   color: #A3A9B2;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #A3A9B2;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #A3A9B2;
+}
+:-ms-input-placeholder {
+   color: #A3A9B2;
+}
+
+/* bicubic resizing for non-native sized IMG:
+code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/*navigation*/
+.navigation {
+  background-color: #00B140;
+  height: 5.625rem;
+}
+
+/*form styles*/
+.form {
+  background-color: #FFF;
+	position: relative;
+  text-align: center;
+  width: 100%;
+}
+.form fieldset {
+	background: #F7F9FB;
+	border: 0 none;
+	box-sizing: border-box;
+	padding: 1.875rem 1.25rem; /* 1.875rem = 30px, 1.25rem = 20px */
+	/*stacking fieldsets above each other*/
+	position: absolute;
+  width: 100%;
+}
+.form .input {
+	margin-top: 1.25rem; /* 1.25rem = 20px */
+}
+/*Hide all except first fieldset*/
+.form fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+.form input, .form textarea {
+  background-color: #EAEFF2;
+	border: 1px solid #CCD6DD;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+	border-radius: 1px;
+  box-sizing: border-box;
+  color: #2C3E50;
+  font-size: 1.75rem; /* 1.75rem = 28px */
+	margin-bottom: 2.5rem; /* 2.5rem = 40px */
+  padding: 15px;
+  width: 100%;
+}
+/*buttons*/
+.form .action-button {
+	background: #27AE60;
+  border: 0 none;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+	border-radius: 1px;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 1.563rem; /* 1.563rem = 25px */
+	font-weight: bold;
+	padding: 1.563rem; /* 1.563rem = 25px */
+  text-transform: uppercase;
+  width: 100%;
+}
+.form .action-button:hover, .form .action-button:focus {
+	box-shadow: 0 0 0 2px #FFF, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.maintitle {
+  color: #14202C;
+  font-size: 2rem; /* 2rem = 32px */
+  font-weight: normal;
+  margin: 0;
+	padding: 0 1.25rem;
+}
+.title {
+  color: #363A45;
+	font-size: 1.75rem; /* 1.75rem = 28px */
+  font-weight: normal;
+	padding: 0 1.25rem;
+  text-align: left;
+}
+.subtitle {
+  color: #565D6B;
+	font-size: 1.5rem; /* 1.5rem = 24px */
+	font-weight: normal;
+	padding: 0 1.25rem;
+  text-align: left;
+}
+/*progressbar*/
+.progressbar {
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+  height: 4.5rem; /* 4.5rem = 72px */
+  overflow: hidden;
+}
+.progressbar li {
+  color: #9B9B9B;
+	float: left;
+  font-size: 1.5rem;
+	list-style-type: none;
+	position: relative;
+  top: 1rem;
+  width: 33.33%;
+}
+/*.progressbar li:before {
+  color: #9B9B9B;
+  content: "Step " counter(step);
+	counter-increment: step;
+  display: block;
+	font-size: 1.5rem;
+	line-height: 1.75rem;
+	margin: 0 auto;
+  width: 10rem;
+}*/
+/*progressbar connectors*/
+.progressbar li:after {
+  background: #CCD6DD;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #333122;
+	content: '>';
+  display: block;
+  font-size: 1rem;
+  height: 1.5rem; /* 1.5rem = 24px */
+  left: -1rem;
+  line-height: 1.5rem;
+  position: relative;
+  top: -1.75rem;
+	width: 1.5rem;
+}
+.progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+.progressbar li.active {
+	color: #00B23E;
+}
