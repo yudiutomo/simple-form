@@ -92,6 +92,9 @@ code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-imag
   padding: 15px;
   width: 100%;
 }
+.form textarea {
+  height: 9.375rem; /* 9.375rem = 150px */
+}
 /*buttons*/
 .form .action-button {
 	background: #27AE60;
@@ -137,7 +140,6 @@ code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-imag
 	/*CSS counters to number the steps*/
 	counter-reset: step;
   height: 4.5rem; /* 4.5rem = 72px */
-  overflow: hidden;
 }
 .progressbar li {
   color: #9B9B9B;
@@ -148,16 +150,7 @@ code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-imag
   top: 1rem;
   width: 33.33%;
 }
-/*.progressbar li:before {
-  color: #9B9B9B;
-  content: "Step " counter(step);
-	counter-increment: step;
-  display: block;
-	font-size: 1.5rem;
-	line-height: 1.75rem;
-	margin: 0 auto;
-  width: 10rem;
-}*/
+
 /*progressbar connectors*/
 .progressbar li:after {
   background: #CCD6DD;
