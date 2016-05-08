@@ -92,26 +92,6 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
    Helper classes
    ========================================================================== */
 
@@ -122,6 +102,13 @@ textarea {
 .hidden {
     display: none !important;
 }
+
+/*
+ * Show visually and from screen readers
+ */
+ .show {
+   display: block !important;
+ }
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -162,6 +149,14 @@ textarea {
 .invisible {
     visibility: hidden;
 }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+ .visible {
+     visibility: visible;
+ }
 
 /*
  * Clearfix: contain floats
@@ -280,3 +275,7 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
