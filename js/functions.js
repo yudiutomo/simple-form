@@ -11,10 +11,11 @@ $('.next').click(function () {
       return false;
     }
   }
-  else if ($parentFieldsetId == 'fieldset-2') {
+  if ($parentFieldsetId == 'fieldset-2') {
     if (validateFieldset2() == false) {
       return false;
     }
+    $('#progressbar li').addClass('done active');
   }
 
   if (animating) return false;
@@ -25,6 +26,7 @@ $('.next').click(function () {
 
 	// activate next step on progressbar using the index of next_fs
   $('#progressbar li').eq($('fieldset').index(next_fs)).addClass('active');
+  $('#progressbar li').eq(($('fieldset').index(next_fs) - 1)).addClass('done active');
 
 	// show the next fieldset
   next_fs.show();
@@ -113,6 +115,7 @@ function handleFileSelect (evt) {
                             '" title="', escape(theFile.name), '"/>'].join('');
         document.getElementById('output').insertBefore(span, null);
         document.getElementById('fileinput-button').className = 'hidden';
+        document.getElementById('fieldset-1-submit').className = 'next action-button';
       };
     })(f);
 
@@ -143,10 +146,11 @@ function validateFieldset2()
 {
   var $fname = document.getElementById('fname');
   var $fnameNotif = document.getElementById('fname-notif');
+  var $error = false;
   if ($fname.value == null || $fname.value == '') {
       $fnameNotif.className = 'notif visible error';
       $fname.focus();
-      return false;
+      $error = true;
   }
   else {
     $fnameNotif.className = 'notif invisible';
@@ -157,7 +161,7 @@ function validateFieldset2()
   if ($lname.value == null || $lname.value == '') {
       $lnameNotif.className = 'notif visible error';
       $lname.focus();
-      return false;
+      $error = true;
   }
   else {
     $lnameNotif.className = 'notif invisible';
@@ -168,12 +172,23 @@ function validateFieldset2()
   if ($phone.value == null || $phone.value == '') {
       $phoneNotif.className = 'notif visible error';
       $phone.focus();
-      return false;
+      $error = true;
   }
   else {
     $phoneNotif.className = 'notif invisible';
   }
-
+  if ($error == true) {
+      return false;
+  }
   return true;
 }
+
+$('#fname, #lname, #phone').change(function(){
+    if(($('#fname').val() == '') || ($('#lname').val() == '') || ($('#phone').val() == '')) {
+      document.getElementById('fieldset-2-submit').className = 'next disable action-button';
+    }
+    else {
+      document.getElementById('fieldset-2-submit').className = 'next action-button';
+    }
+});
 /* End Form Validation functions */
